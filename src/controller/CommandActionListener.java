@@ -5,15 +5,18 @@ import java.awt.event.ActionListener;
 import java.util.List;
 
 public class CommandActionListener implements ActionListener {
-	private List<String> command;
+	private List<String> commandList;
 	
-	public List<String> getCommand() {
-		return command;
+	public List<String> getCommandList() {
+		return commandList;
 	}
 
+	public String getCommand(int index) {
+		return commandList.get(index);
+	}
 
-	public void setCommand(List<String> command) {
-		this.command = command;
+	public void setCommandList(List<String> command) {
+		this.commandList = command;
 	}
 
 

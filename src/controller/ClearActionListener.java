@@ -13,7 +13,7 @@ public class ClearActionListener extends CommandActionListener implements Action
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		pile.clear();
 
 	}
 

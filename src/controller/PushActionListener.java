@@ -9,10 +9,11 @@ public class PushActionListener extends CommandActionListener implements ActionL
 	private Pile pile;
 	public PushActionListener(Pile pile) {
 		this.pile = pile;
+		
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		pile.push(Integer.getInteger(getCommand(1)));
 		
 	}
 

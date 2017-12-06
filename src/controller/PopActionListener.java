@@ -15,7 +15,7 @@ public class PopActionListener extends CommandActionListener implements ActionLi
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		pile.pop();
 		
 	}
 
