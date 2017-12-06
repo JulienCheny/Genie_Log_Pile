@@ -26,6 +26,6 @@ public class CommandInterpreter {
 		List<String> argv = Arrays.asList(message.split(" "));
 		CommandActionListener action = commandList.get(argv.get(0));
 		action.setCommandList(argv);
-		action.notify();
+		action.actionPerformed(null);
 	}
 }

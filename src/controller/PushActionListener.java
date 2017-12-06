@@ -13,8 +13,8 @@ public class PushActionListener extends CommandActionListener implements ActionL
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		String int1 = getCommand(1);
 		pile.push(Integer.getInteger(getCommand(1)));
-		
 	}
 
 }

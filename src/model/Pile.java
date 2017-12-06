@@ -9,7 +9,7 @@ import java.util.List;
  */
 public class Pile {
 	
-	private List<Integer> elements;
+	private List<Integer> elements = new ArrayList<>();
 
 	
 	/**
@@ -45,6 +45,25 @@ public class Pile {
 		this.elements = elements;
 	}
 	
+	/**
+	 * Method getFirstElement :
+	 * @return the first element of the pile
+	 */
+	public Integer getFirstElement() {
+		if(elements.size() > 0)
+			return elements.get(elements.size()-1);
+		else
+			return null;
+	}
+	
+	/**
+	 * Method getFirstElement :
+	 * @return the first element of the pile
+	 */
+	public List<Integer> getFiveLastElements() {
+		List<Integer> list = new ArrayList<>();
+		return list;
+	}
 	
 	/**
 	 * Method pop : remove the element at the bottom of the pile

@@ -3,34 +3,57 @@ package view;
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JTextField;
+import javax.swing.plaf.basic.BasicInternalFrameUI.InternalFramePropertyChangeListener;
+
+import controller.CommandInterpreter;
+import controller.SendButtonActionListener;
+import model.Pile;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 
 public class MainWindow extends JFrame {
-	private JTextField textField;
-	private JTextField txtFirstElement;
-	public MainWindow() {
+	private CommandInterpreter interpreter;
+	private Pile pile;
+	
+	private JTextField textField = new JTextField();
+	public MainWindow(CommandInterpreter interpreter, Pile pile) {
+		this.setResizable(false);
+		this.setLocation(200, 200);
+		this.setSize(430, 260);
+		this.interpreter = interpreter;
+		this.pile = pile;
+		
+		SendButtonActionListener sendActionListener = new SendButtonActionListener(textField, interpreter);
+		
 		getContentPane().setLayout(null);
 		
 		JButton btnSend = new JButton("SEND");
 		btnSend.setBounds(303, 181, 89, 23);
 		getContentPane().add(btnSend);
+		btnSend.addActionListener(sendActionListener);
 		
-		textField = new JTextField();
 		textField.setBounds(91, 181, 212, 23);
 		getContentPane().add(textField);
 		textField.setColumns(10);
+		textField.addActionListener(sendActionListener);
 		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblNewLabel.setBounds(265, 89, 127, 45);
-		getContentPane().add(lblNewLabel);
+		JLabel lblFirstElement = new JLabel();
+		lblFirstElement.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		lblFirstElement.setBounds(265, 89, 127, 45);
+		getContentPane().add(lblFirstElement);
+		Integer firstElement = pile.getFirstElement();
+		if(firstElement != null)
+			lblFirstElement.setText(firstElement.toString());
 		
-		txtFirstElement = new JTextField();
-		txtFirstElement.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		txtFirstElement.setText("First element : ");
-		txtFirstElement.setBounds(76, 89, 163, 45);
-		getContentPane().add(txtFirstElement);
-		txtFirstElement.setColumns(10);
+		JLabel lbltxtFirstElement = new JLabel("First element : ");
+		lbltxtFirstElement.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		lbltxtFirstElement.setBounds(98, 92, 157, 39);
+		getContentPane().add(lbltxtFirstElement);
+		this.setVisible(true);
+	}
+	
+	public void update() {
+		
 	}
 }
