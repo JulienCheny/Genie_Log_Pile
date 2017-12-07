@@ -13,9 +13,9 @@ public class Application {
 		MainWindow mainWin = new MainWindow(interpreter, pile);
 		PileBottomWindow pileBottomWin = new PileBottomWindow(pile);
 		
-		interpreter.addCommand("clear",new ClearActionListener(pile));
-		interpreter.addCommand("push", new PushActionListener(pile));
-		interpreter.addCommand("pop", new  PopActionListener(pile));
+		interpreter.addCommand("clear",new ClearActionListener(pile, mainWin, pileBottomWin));
+		interpreter.addCommand("push", new PushActionListener(pile, mainWin, pileBottomWin));
+		interpreter.addCommand("pop", new  PopActionListener(pile, mainWin, pileBottomWin));
 		interpreter.addCommand("quit", new QuitActionListener(mainWin, pileBottomWin));
 	}
 }

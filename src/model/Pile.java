@@ -60,8 +60,11 @@ public class Pile {
 	 * Method getFirstElement :
 	 * @return the first element of the pile
 	 */
-	public List<Integer> getFiveLastElements() {
-		List<Integer> list = new ArrayList<>();
+	public List<String> getFiveLastElements() {
+		List<String> list = new ArrayList<>();
+		for(int i = 0; i < 5 && i < elements.size(); i++) {
+			list.add(elements.get(i).toString());
+		}
 		return list;
 	}
 	
@@ -70,7 +73,8 @@ public class Pile {
 	 */
 	public void pop()
 	{
-		elements.remove(elements.size()-1);
+		if(elements.size() != 0)
+			elements.remove(elements.size()-1);
 	}
 	
 	/**
@@ -89,6 +93,15 @@ public class Pile {
 	public void push(Integer value)
 	{
 		elements.add(value);
+	}
+	
+	/**
+	 * Method size :
+	 * @return size of the pile
+	 */
+	public int size()
+	{
+		return elements.size();
 	}
 
 

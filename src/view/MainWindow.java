@@ -12,11 +12,14 @@ import model.Pile;
 import javax.swing.JLabel;
 import java.awt.Font;
 
+@SuppressWarnings("serial")
 public class MainWindow extends JFrame {
 	private CommandInterpreter interpreter;
 	private Pile pile;
 	
 	private JTextField textField = new JTextField();
+	private JLabel lblFirstElement = new JLabel();
+	
 	public MainWindow(CommandInterpreter interpreter, Pile pile) {
 		this.setResizable(false);
 		this.setLocation(200, 200);
@@ -38,7 +41,6 @@ public class MainWindow extends JFrame {
 		textField.setColumns(10);
 		textField.addActionListener(sendActionListener);
 		
-		JLabel lblFirstElement = new JLabel();
 		lblFirstElement.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		lblFirstElement.setBounds(265, 89, 127, 45);
 		getContentPane().add(lblFirstElement);
@@ -46,14 +48,18 @@ public class MainWindow extends JFrame {
 		if(firstElement != null)
 			lblFirstElement.setText(firstElement.toString());
 		
-		JLabel lbltxtFirstElement = new JLabel("First element : ");
-		lbltxtFirstElement.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lbltxtFirstElement.setBounds(98, 92, 157, 39);
-		getContentPane().add(lbltxtFirstElement);
+		JLabel lblTxtFirstElement = new JLabel("First element : ");
+		lblTxtFirstElement.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		lblTxtFirstElement.setBounds(98, 92, 157, 39);
+		getContentPane().add(lblTxtFirstElement);
 		this.setVisible(true);
 	}
 	
 	public void update() {
-		
+		Integer firstElement = pile.getFirstElement();
+		if(firstElement == null)
+			lblFirstElement.setText("");
+		else
+			lblFirstElement.setText(firstElement.toString());
 	}
 }
