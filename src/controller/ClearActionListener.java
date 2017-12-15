@@ -21,8 +21,8 @@ public class ClearActionListener extends CommandActionListener implements Action
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		pile.clear();
-		mainWin.update();
-		pileBottomWin.update();
+		//mainWin.update();
+		//pileBottomWin.update();
 	}
 
 }

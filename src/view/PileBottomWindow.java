@@ -4,6 +4,8 @@ import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import java.awt.Font;
 import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
 import java.util.Vector;
 
 import model.Pile;
@@ -12,7 +14,7 @@ import javax.swing.JList;
 import javax.swing.JLabel;
 
 @SuppressWarnings("serial")
-public class PileBottomWindow extends JFrame{
+public class PileBottomWindow extends JFrame implements Observer{
 	private Pile pile;
 	private JList<Object> listElements = new JList<>();
 	
@@ -44,5 +46,10 @@ public class PileBottomWindow extends JFrame{
 		}
 		else
 			listElements.setListData(strList.toArray());
+	}
+
+	@Override
+	public void update(Observable o, Object arg) {
+		update();
 	}
 }

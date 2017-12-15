@@ -23,9 +23,9 @@ public class PopActionListener extends CommandActionListener implements ActionLi
 	public void actionPerformed(ActionEvent e) {
 		pile.pop();
 		
-		mainWin.update();
+		/*mainWin.update();
 		if(pile.size() < 5)
-			pileBottomWin.update();
+			pileBottomWin.update();*/
 	}
 
 }

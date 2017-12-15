@@ -11,9 +11,11 @@ import model.Pile;
 
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.util.Observable;
+import java.util.Observer;
 
 @SuppressWarnings("serial")
-public class MainWindow extends JFrame {
+public class MainWindow extends JFrame implements Observer {
 	private CommandInterpreter interpreter;
 	private Pile pile;
 	
@@ -61,5 +63,10 @@ public class MainWindow extends JFrame {
 			lblFirstElement.setText("");
 		else
 			lblFirstElement.setText(firstElement.toString());
+	}
+
+	@Override
+	public void update(Observable arg0, Object arg1) {
+		update();
 	}
 }

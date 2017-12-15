@@ -2,12 +2,13 @@ package model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
 
 /**
  * @author François and Julien
  *
  */
-public class Pile {
+public class Pile extends Observable {
 	
 	private List<Integer> elements = new ArrayList<>();
 
@@ -19,6 +20,8 @@ public class Pile {
 	public Pile(List<Integer> e1) {
 		super();
 		this.elements = e1;
+		setChanged();
+		notifyObservers(this.elements);
 	}
 	
 	
@@ -43,6 +46,8 @@ public class Pile {
 	public void setElements(ArrayList<Integer> elements) {
 		
 		this.elements = elements;
+		setChanged();
+		notifyObservers(this.elements);
 	}
 	
 	/**
@@ -75,6 +80,8 @@ public class Pile {
 	{
 		if(elements.size() != 0)
 			elements.remove(elements.size()-1);
+		setChanged();
+		notifyObservers(this.elements);
 	}
 	
 	/**
@@ -84,6 +91,8 @@ public class Pile {
 	public void clear()
 	{
 		elements.clear();
+		setChanged();
+		notifyObservers(this.elements);
 	}
 	
 	/**
@@ -93,6 +102,8 @@ public class Pile {
 	public void push(Integer value)
 	{
 		elements.add(value);
+		setChanged();
+		notifyObservers(this.elements);
 	}
 	
 	/**

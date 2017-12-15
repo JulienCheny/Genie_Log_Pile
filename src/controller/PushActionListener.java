@@ -21,9 +21,9 @@ public class PushActionListener extends CommandActionListener implements ActionL
 	public void actionPerformed(ActionEvent e) {
 		pile.push(Integer.parseInt(getCommand(1)));
 		
-		mainWin.update();
+		/*mainWin.update();
 		if(pile.size() <= 5)
-			pileBottomWin.update();
+			pileBottomWin.update();*/
 	}
 
 }
